@@ -1,0 +1,333 @@
+/*
+Theme Name: DLM 2015
+*/ 
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:700,300|Roboto+Slab:700,400,300,100|Roboto+Condensed:700,400,300);
+@import "bootstrap/less/bootstrap";
+@import "variables";   
+@import "elements";
+
+//http://www.colourlovers.com/palette/75904/android
+@gray: #777F72;
+@grayDark: darken(@gray,20%);
+@grayLight: lighten(@gray,15%);
+@grayLighter: lighten(@gray,48%);
+@brown: #9B6525;
+@brownDark: darken(@brown,17%);
+@brownLight: lighten(@brown,20%);
+@brownLighter: lighten(@brown,30%);
+
+body {margin: 0; font-family: "Roboto"}
+.slab(@weight:700) {font-family: "Roboto Slab"; font-weight: @weight}
+.cond(@weight:300) {font-family: "Roboto Condensed"; font-weight: @weight}
+.shadow {box-shadow: 0 0 0.2em rgba(0,0,0,0.2);}
+* {box-sizing: border-box;}
+
+h1 {.slab(700);}
+h2 {.slab(300);}
+h3 {.slab(300);}
+h4 {.slab(300); color:@grayLight}
+a {color:@brownLight;
+	&:hover {color:@brownLighter;}
+} 
+.imgwrap {padding: 75% 0 0; position: relative; text-align: center; overflow: hidden; display: block;
+	img {position: absolute; top: 0; bottom: 0; left: 0; right: 0; display: block; min-width: 100%; max-width: 100%; height: auto;}
+}
+.desaturate {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
+	filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+}
+
+#page {padding-top: 3em;}
+nav.site-nav {.slab; background: white; height: 4em; position: fixed; width:100%; top:0; z-index: 1000; .shadow;
+	body.admin-bar & {top:32px;}
+	.row {position: relative;}
+	h1.site-logo{background:white; width:2.5em; height:2.5em; margin: 0; padding: 0; position: absolute; left:@grid-gutter-width/2; top:0; .shadow;
+		svg path{fill:@brownDark;}
+	}
+	ul {float: right; margin: 0; padding: 1.25em 0; display: none;
+		li {display: inline-block; margin:0 1em;
+			a {color:@grayDark; text-decoration: none; padding: 0.25em; font-size: 1.2em; text-transform: uppercase;
+				&:hover {color:@brownLight}
+			}
+		} 
+		@media (min-width: @screen-sm-min) {display: block;}
+	}
+
+	button.hamburger {background: none; border:none; margin:0.5em; padding: 0; float: right; font-size: 2em; color:@brown;
+		@media (min-width: @screen-sm-min) {display: none;}
+	}
+}
+
+.site-header {background:url("img/header.jpg") no-repeat center center;  text-align: center; color:white; padding: 3em 0;
+	.home & {padding: 6em 0;}
+	h1 {margin: 0 0 0.25em; padding: 0; .slab; font-size: 3em;}
+	h2 {margin: 0; padding: 0; .cond; font-size: 2.4em; text-transform: uppercase;}
+}
+.site-slogan {text-align: center;
+	h2 {font-size: 2.4em; margin-top: -1em; padding: 0.5em 1em; background: @gray; color:white; display: inline-block;}
+}
+.site-content {padding:2em 0;
+	.col h2 {border-top: 1px solid @brown; padding-top: 0.5em}
+}
+
+//https://www.flickr.com/photos/16638697@N00/419796506/
+.site-services {padding:2em 0; background:url("img/services.jpg") no-repeat center center; color:white;
+	.area {background:fade(@grayDark,66.6%); padding:1em; margin:1em 0; 
+		h3 {margin-top: 0}
+	}
+}
+
+.site-profiles {padding: 2em 0 0;
+	.profile {
+		.imgwrap {margin: 0 auto; background: @brown; max-width: 15em; padding-top: 66.6%;
+			img{.desaturate; opacity:0.50; .transition(0.5s);}
+		}
+		&:hover {
+			.imgwrap img {opacity: 1;}
+		}
+	}
+}
+
+.site-blog {padding: 3em 0;
+	.imgwrap {margin-bottom: 2em;}
+	h2 {margin-top: 0}
+	h4 {display: none;
+		a {color: inherit;}
+		@media (min-width: @screen-sm-min){display: block;}
+	}
+}
+
+.site-footer {background:@grayDark; color:white; text-align: center; padding: 2em 0;
+	a {color:@brownLighter;}
+	p {font-size: 1em; .slab(400);
+		@media (min-width: @screen-sm-min) {font-size: 2em}
+	}
+	.contact {border:1px solid @gray; padding: 0.25em 0.5em; display: inline-block;}
+	cite {color:@gray;}
+}
+
+.profile-detail {padding:2em 0;
+	a[name]{position: relative; top:-150px; display: block;} 
+	.imgwrap {padding-top: 120%; margin-bottom: 1em;}  
+	h2 {margin-top: 0}
+}
+
+.service-detail {background: @grayLighter; border-top: 1px solid @brown; padding: 2em; margin: 2em 0;
+	.imgwrap {padding-top:40%; margin-bottom: 1em;}
+	h2 {margin-top: 0}
+
+}
+
+.widget-area ul {list-style: none; margin: 0; padding: 0;
+	.widget-container {border-top: 1px solid @brownLighter; margin: 0 0 3em;}
+	.widget-title {color:@brownDark;}
+}
+
+.entry-thumbnail {padding-top: 33.3%; margin: -4em 0 1em;} 
+.entry-title {color:@brownDark;
+	a {color:inherit;}
+}
+.entry-meta {color:@gray; margin:0 0 1em; border-top: 1px solid @brownLighter; padding: 0.5em 0; 
+	.home & {text-align: left;}
+	.entry-cat { margin-left: 1em;
+		@media (min-width: @screen-sm-min){float: right;}
+	}
+}
+
+
+
+
+/** SIDR ***********************************************/
+/* line 3, ../../src/scss/sidr/_base.scss */
+.sidr {
+  /* Default Settings */
+  display: none;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  z-index: 999999;
+  width: 260px;
+  overflow-x: none;
+  overflow-y: auto;
+  /* Theme Settings */
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 15px;
+  background: #f8f8f8;
+  color: #333333;
+  -webkit-box-shadow: inset 0 0 5px 5px #ebebeb;
+  -moz-box-shadow: inset 0 0 5px 5px #ebebeb;
+  box-shadow: inset 0 0 5px 5px #ebebeb;
+}
+/* line 15, ../../src/scss/sidr/_base.scss */
+.sidr .sidr-inner {
+  padding: 0 0 15px;
+}
+/* line 18, ../../src/scss/sidr/_base.scss */
+.sidr .sidr-inner > p {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+/* line 24, ../../src/scss/sidr/_base.scss */
+.sidr.right {
+  left: auto;
+  right: -260px;
+}
+/* line 29, ../../src/scss/sidr/_base.scss */
+.sidr.left {
+  left: -260px;
+  right: auto;
+}
+/* line 41, ../../src/scss/sidr/_base.scss */
+.sidr h1, .sidr h2, .sidr h3, .sidr h4, .sidr h5, .sidr h6 {
+  font-size: 11px;
+  font-weight: normal;
+  padding: 0 15px;
+  margin: 0 0 5px;
+  color: #333333;
+  line-height: 24px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dfdfdf));
+  background-image: -webkit-linear-gradient(#ffffff, #dfdfdf);
+  background-image: -moz-linear-gradient(#ffffff, #dfdfdf);
+  background-image: -o-linear-gradient(#ffffff, #dfdfdf);
+  background-image: linear-gradient(#ffffff, #dfdfdf);
+  -webkit-box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.2);
+}
+/* line 52, ../../src/scss/sidr/_base.scss */
+.sidr p {
+  font-size: 13px;
+  margin: 0 0 12px;
+}
+/* line 55, ../../src/scss/sidr/_base.scss */
+.sidr p a {
+  color: rgba(51, 51, 51, 0.9);
+}
+/* line 60, ../../src/scss/sidr/_base.scss */
+.sidr > p {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+/* line 65, ../../src/scss/sidr/_base.scss */
+.sidr ul {
+  display: block;
+  margin: 0 0 15px;
+  padding: 0;
+  border-top: 1px solid #dfdfdf;
+  border-bottom: 1px solid white;
+}
+/* line 72, ../../src/scss/sidr/_base.scss */
+.sidr ul li {
+  display: block;
+  margin: 0;
+  line-height: 48px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid #dfdfdf;
+}
+/* line 81, ../../src/scss/sidr/_base.scss */
+.sidr ul li:hover, .sidr ul li.active, .sidr ul li.sidr-class-active {
+  border-top: none;
+  line-height: 49px;
+}
+/* line 85, ../../src/scss/sidr/_base.scss */
+.sidr ul li:hover > a, .sidr ul li:hover > span, .sidr ul li.active > a, .sidr ul li.active > span, .sidr ul li.sidr-class-active > a, .sidr ul li.sidr-class-active > span {
+  -webkit-box-shadow: inset 0 0 15px 3px #ebebeb;
+  -moz-box-shadow: inset 0 0 15px 3px #ebebeb;
+  box-shadow: inset 0 0 15px 3px #ebebeb;
+}
+/* line 90, ../../src/scss/sidr/_base.scss */
+.sidr ul li a, .sidr ul li span {
+  padding: 0 15px;
+  display: block;
+  text-decoration: none;
+  color: #333333;
+}
+/* line 97, ../../src/scss/sidr/_base.scss */
+.sidr ul li ul {
+  border-bottom: none;
+  margin: 0;
+}
+/* line 100, ../../src/scss/sidr/_base.scss */
+.sidr ul li ul li {
+  line-height: 40px;
+  font-size: 13px;
+}
+/* line 104, ../../src/scss/sidr/_base.scss */
+.sidr ul li ul li:last-child {
+  border-bottom: none;
+}
+/* line 110, ../../src/scss/sidr/_base.scss */
+.sidr ul li ul li:hover, .sidr ul li ul li.active, .sidr ul li ul li.sidr-class-active {
+  border-top: none;
+  line-height: 41px;
+}
+/* line 114, ../../src/scss/sidr/_base.scss */
+.sidr ul li ul li:hover > a, .sidr ul li ul li:hover > span, .sidr ul li ul li.active > a, .sidr ul li ul li.active > span, .sidr ul li ul li.sidr-class-active > a, .sidr ul li ul li.sidr-class-active > span {
+  -webkit-box-shadow: inset 0 0 15px 3px #ebebeb;
+  -moz-box-shadow: inset 0 0 15px 3px #ebebeb;
+  box-shadow: inset 0 0 15px 3px #ebebeb;
+}
+/* line 119, ../../src/scss/sidr/_base.scss */
+.sidr ul li ul li a, .sidr ul li ul li span {
+  color: rgba(51, 51, 51, 0.8);
+  padding-left: 30px;
+}
+/* line 128, ../../src/scss/sidr/_base.scss */
+.sidr form {
+  margin: 0 15px;
+}
+/* line 132, ../../src/scss/sidr/_base.scss */
+.sidr label {
+  font-size: 13px;
+}
+/* line 146, ../../src/scss/sidr/_base.scss */
+.sidr input[type="text"],
+.sidr input[type="password"],
+.sidr input[type="date"],
+.sidr input[type="datetime"],
+.sidr input[type="email"],
+.sidr input[type="number"],
+.sidr input[type="search"],
+.sidr input[type="tel"],
+.sidr input[type="time"],
+.sidr input[type="url"],
+.sidr textarea, .sidr select {
+  width: 100%;
+  font-size: 13px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 0 10px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(51, 51, 51, 0.6);
+  display: block;
+  clear: both;
+}
+/* line 160, ../../src/scss/sidr/_base.scss */
+.sidr input[type=checkbox] {
+  width: auto;
+  display: inline;
+  clear: none;
+}
+/* line 167, ../../src/scss/sidr/_base.scss */
+.sidr input[type=button],
+.sidr input[type=submit] {
+  color: #f8f8f8;
+  background: #333333;
+}
+/* line 171, ../../src/scss/sidr/_base.scss */
+.sidr input[type=button]:hover,
+.sidr input[type=submit]:hover {
+  background: rgba(51, 51, 51, 0.9);
+}

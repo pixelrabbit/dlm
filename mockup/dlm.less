@@ -1,0 +1,90 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:700,300|Roboto+Slab:700,400,300,100|Roboto+Condensed:700,400,300);
+@import "../bower_components/bootstrap/less/bootstrap";
+@import "elements";
+
+//http://www.colourlovers.com/palette/75904/android
+@gray: #777F72;
+@grayDark: darken(@gray,20%);
+@grayLight: lighten(@gray,15%);
+@brown: #9B6525;
+@brownDark: darken(@brown,17%);
+@brownLight: lighten(@brown,20%);
+@brownLighter: lighten(@brown,30%);
+
+body {margin: 0; font-family: "Roboto"}
+.slab(@weight:700) {font-family: "Roboto Slab"; font-weight: @weight}
+.cond(@weight:300) {font-family: "Roboto Condensed"; font-weight: @weight}
+.shadow {box-shadow: 0 0 0.2em rgba(0,0,0,0.2);}
+* {box-sizing: border-box;}
+
+h1 {.slab(700);}
+h2 {.slab(300);}
+h3 {.slab(300);}
+a {color:@brownLight;}
+.imgwrap {padding-bottom: 75%; position: relative; text-align: center; overflow: hidden;
+	img {position: absolute; top: 0; bottom: 0; left: 0; right: 0; display: block; width: 100%;}
+}
+.desaturate {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
+	filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+}
+
+#page {padding-top: 3em;}
+nav.primary {.slab; background: white; height: 4em; position: fixed; width:100%; top:0; z-index: 1000; .shadow;
+	.row {position: relative;}
+	h1.site-logo{background:white; width:2.5em; height:2.5em; margin: 0; padding: 0; position: absolute; left:0; top:0; .shadow;
+		svg path{fill:@brownDark;}
+	}
+	ul {float: right; margin: 0; padding: 1.25em 0; display: none;
+		li {display: inline-block; margin:0 1em;
+			a {color:@grayDark; text-decoration: none; padding: 0.25em; font-size: 1.2em; text-transform: uppercase;
+				&:hover {color:@brownLight}
+			}
+		}
+		@media (min-width: @screen-sm-min) {display: block;}
+	}
+
+	button.hamburger {background: none; border:none; margin:0.5em; padding: 0; float: right; font-size: 2em; color:@brown;
+		@media (min-width: @screen-sm-min) {display: none;}
+	}
+}
+
+.site-header {background:url("img/header.jpg") no-repeat center center;  text-align: center; color:white; padding: 6em 0;
+	h1 {margin: 0 0 0.25em; padding: 0; .slab; font-size: 3em;}
+	h2 {margin: 0; padding: 0; .cond; font-size: 2.4em; text-transform: uppercase;}
+}
+.site-slogan {text-align: center;
+	h2 {font-size: 2.4em; margin-top: -1em; padding: 0.5em 1em; background: @gray; color:white; display: inline-block;}
+}
+.site-content {padding:2em 0;
+	.col h2 {border-top: 1px solid @brown; padding-top: 0.5em}
+}
+
+//https://www.flickr.com/photos/16638697@N00/419796506/
+.site-services {padding:2em 0; background:url("img/services.jpg") no-repeat center center; color:white;
+	.area {background:fade(@grayDark,66.6%); padding:1em; margin:1em 0;
+		h3 {margin-top: 0}
+	}
+}
+
+.site-profiles {padding: 2em 0;
+	.profile {
+		.imgwrap {margin: 0 3em; background: @brown;
+			img{.desaturate; opacity:0.50; .transition(0.5s);}
+		}
+		&:hover {
+			.imgwrap img {opacity: 1;}
+		}
+	}
+}
+
+.site-footer {background:@grayDark; color:white; text-align: center; padding: 2em 0;
+	a {color:@brownLighter;}
+	p {font-size: 1em; .slab(400);
+		@media (min-width: @screen-sm-min) {font-size: 2em}
+	}
+	.contact {border:1px solid @gray; padding: 0.25em 0.5em; display: inline-block;}
+	cite {color:@gray;}
+}

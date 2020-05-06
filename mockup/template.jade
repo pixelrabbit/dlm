@@ -1,0 +1,73 @@
+doctype
+html.no-js
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		title DLM mockup
+		meta(name='description', content='')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		//-link(rel='stylesheet', href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+		link(rel='stylesheet', href='dlm.css')
+	body
+		#page
+			nav.primary
+				.container
+					.row
+						h1.site-logo: a(href="#")
+							include logo.html 
+						ul 
+							each item in ["Home","Services","Attorneys","Contact"] 
+								li 
+									a(href="#") #{item} 
+						button.glyphicon.glyphicon-menu-hamburger.hamburger
+			header.site-header
+				.container
+					.row
+						.col-sm-12
+							h1 DIETZ, LAWRENCE &amp; McGIVERIN
+							h2 Attorneys at Law
+			.site-slogan
+				.container
+					.row
+						h2 We'll Get You Back on Track
+			.site-content
+				.container
+					.row
+						.col-sm-6.col
+							h2 About the Firm
+							p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+							p Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+						.col-sm-6.col
+							h2 Our Approach
+							p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+							p Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+			.site-services
+				.container
+					.row
+						.col-sm-3
+							h1 Our Services
+						.col-sm-9
+							.row
+								each item in ["Family","Wills","Debt","Arrest"]
+									.col-sm-6
+										.area
+											h3 #{item}
+											p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi.  <a href="#">Learn More</a>
+			.site-profiles
+				.container
+					.row
+						each item,i in ["Kevin Dietz","Doug Lawrence","Brian McGiverin"]
+							.col-sm-4
+								.profile
+									.imgwrap
+										img(src="img/profile#{i}.jpg")
+									h2 #{item}
+									p Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis.
+			.site-footer
+				.container
+					.row
+						p.telephone 404.563.5690
+						p.contact <a href="#">inquiries@austinlawcenter.com</a>
+						address 123 Congress Ave, Austin, TX 78701
+						cite &copy; 2015 Dietz, Lawrence &amp; McGiverin | Attorneys at Law
+
